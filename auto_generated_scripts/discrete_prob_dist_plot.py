@@ -62,7 +62,6 @@ def make_graph(probs, N, save_name, fig=None, ax=None):
     ax.set_ylabel("$Pr(X=x)$")
     sns.despine()
     if dev_mode and len(save_name) > 0:
-        fig.tight_layout()
         savefig(save_name)
     return fig, ax
 
