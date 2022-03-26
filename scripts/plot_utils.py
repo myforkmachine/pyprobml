@@ -2,14 +2,12 @@ import os
 import matplotlib.pyplot as plt
 
 DEFAULT_WIDTH = 6.0
-GOLDEN_MEAN = (5 ** 0.5 - 1.0) / 2.0  # Aesthetic ratio
+GOLDEN_MEAN = (5**0.5 - 1.0) / 2.0  # Aesthetic ratio
 DEFAULT_HEIGHT = 1.5
 # SPLINE_COLOR = 'gray'
 
 
-def latexify(
-    width_scale_factor=1, height_scale_factor=1, fig_width=None, fig_height=None
-):
+def latexify(width_scale_factor=1, height_scale_factor=1, fig_width=None, fig_height=None):
     """
     width_scale_factor: float, with this factor the figure will be scaled
     fig_width: float, width of the figure in inches (if this is specified, width_scale_factor is ignored)
@@ -57,4 +55,5 @@ def savefig(f_name, fig_dir=None, *args, **kwargs):
 
     if not "TEST_MODE" in os.environ:
         print("saving image to {}".format(fname_full))
+        plt.tight_layout()
         plt.savefig(fname_full, bbox_inches="tight", pad_inches=0.0, *args, **kwargs)
