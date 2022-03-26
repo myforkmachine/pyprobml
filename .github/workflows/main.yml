@@ -14,8 +14,6 @@ jobs:
     steps:
     # Clone the repository
     - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.ref }}
     # Set up the environment
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
