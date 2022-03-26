@@ -1,0 +1,30 @@
+#######################################################################################
+# A default configuration that will be loaded for all jupyter books
+# See the documentation for help and more options: 
+# https://jupyterbook.org/customize/config.html
+
+#######################################################################################
+# Book settings
+title                       : "Probabilistic Machine Learning: An Introduction"
+copyright                   : "2022"  # Copyright year to be placed in the footer
+execute:
+  execute_notebooks: false
+  
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
+
+repository:
+  url: https://github.com/patel-zeel/pyprobml
+  branch: master
+  
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - dollarmath
+    - linkify 
+    - substitution
+
+html:
+  use_issues_button         : true  # Whether to add an "open an issue" button
+  use_repository_button     : true  # Whether to add a link to your repository button

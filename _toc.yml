@@ -1,0 +1,6 @@
+format: jb-book
+root: intro
+parts:
+  - caption: 
+    chapters:
+      - file: notebooks/discrete_prob_dist_plot.ipynb
