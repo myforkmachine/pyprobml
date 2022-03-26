@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Probabilistic Machine Learning</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilistic Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Probabilistic Machine Learning
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/discrete_prob_dist_plot.html">
+   Discrete Probability Distribution Plot
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/scratchpad.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/patel-zeel/pyprobml"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/patel-zeel/pyprobml/issues/new?title=Issue%20on%20page%20%2Fscratchpad.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/patel-zeel/pyprobml/master?urlpath=tree/scratchpad.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/patel-zeel/pyprobml/blob/master/scratchpad.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># 2x 2 chips (4 cores) per process:</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TPU_CHIPS_PER_HOST_BOUNDS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1,2,1&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TPU_HOST_BOUNDS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1,1,1&quot;</span>
+<span class="c1"># Different per process:</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TPU_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0,1&quot;</span> <span class="c1"># Change to &quot;2,3&quot; for the second machine</span>
+<span class="c1"># Pick a unique port per process</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TPU_MESH_CONTROLLER_ADDRESS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;localhost:8476&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TPU_MESH_CONTROLLER_PORT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;8476&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">devices</span><span class="p">())</span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[TpuDevice(id=0, process_index=0, coords=(0,0,0), core_on_chip=0), TpuDevice(id=1, process_index=0, coords=(0,0,0), core_on_chip=1), TpuDevice(id=2, process_index=0, coords=(0,1,0), core_on_chip=0), TpuDevice(id=3, process_index=0, coords=(0,1,0), core_on_chip=1)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that RNG works</span>
+<span class="c1"># Context: https://github.com/google/jax/issues/7896</span>
+<span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+
+<span class="c1"># sample from a Markov chain</span>
+<span class="n">init_dist</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">trans_mat</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+<span class="n">rng_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">jax.scipy.special</span> <span class="kn">import</span> <span class="n">logit</span>
+<span class="n">seq_len</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">initial_state</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">categorical</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logit</span><span class="p">(</span><span class="n">init_dist</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+
+<span class="k">def</span> <span class="nf">draw_state</span><span class="p">(</span><span class="n">prev_state</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">logit</span><span class="p">(</span><span class="n">trans_mat</span><span class="p">[:,</span> <span class="n">prev_state</span><span class="p">])</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">categorical</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+        <span class="k">return</span> <span class="n">state</span><span class="p">,</span> <span class="n">state</span>
+
+        <span class="n">rng_key</span><span class="p">,</span> <span class="n">rng_state</span><span class="p">,</span> <span class="n">rng_obs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng_state</span><span class="p">,</span> <span class="n">seq_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">final_state</span><span class="p">,</span> <span class="n">states</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">lax</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">draw_state</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">states</span><span class="p">)</span>
+            
+<span class="n">rng_key</span><span class="p">,</span> <span class="n">rng_state</span><span class="p">,</span> <span class="n">rng_obs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng_state</span><span class="p">,</span> <span class="n">seq_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">final_state</span><span class="p">,</span> <span class="n">states</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">lax</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">draw_state</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">states</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> ~/base/project1/github
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/disks/persist/project1/github
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> pyprobml/scripts/ab_test_demo.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2283.890028194425
+0.10012814134508047
+3106.0904383444185
+66429.90817920299
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ab_profit.pdf
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ab_profit.png
+</pre></div>
+</div>
+<img alt="_images/scratchpad_5_1.png" src="_images/scratchpad_5_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ab_error.pdf
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ab_error.png
+</pre></div>
+</div>
+<img alt="_images/scratchpad_5_3.png" src="_images/scratchpad_5_3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jsl.demos</span> <span class="kn">import</span> <span class="n">logreg_biclusters_demo</span> <span class="k">as</span> <span class="n">demo</span>
+<span class="n">figures</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">demo</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jsl.demos</span> <span class="kn">import</span> <span class="n">logreg_biclusters_demo</span> <span class="k">as</span> <span class="n">demo</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">figures</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">demo</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nn">File /mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py:107,</span> in <span class="ni">main</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span> <span class="c1">## Laplace</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="ne">--&gt; </span><span class="mi">107</span> <span class="n">w_laplace</span><span class="p">,</span> <span class="n">SN</span> <span class="o">=</span> <span class="n">laplace_posterior</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="c1">### MCMC Approximation</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="n">chains</span> <span class="o">=</span> <span class="n">mcmc_logistic_posterior_sample</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="nn">File /mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py:73,</span> in <span class="ni">laplace_posterior</span><span class="nt">(key, Phi, y, alpha, init_noise)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">def</span> <span class="nf">laplace_posterior</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">init_noise</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Phi</span><span class="o">.</span><span class="n">shape</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>     <span class="n">w0</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">jnp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="o">*</span> <span class="n">init_noise</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="n">E</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="o">-</span><span class="n">E_base</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;BFGS&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/base/project1/env/lib/python3.8/site-packages/jax/_src/random.py:589,</span> in <span class="ni">multivariate_normal</span><span class="nt">(key, mean, cov, shape, dtype, method)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> <span class="k">if</span> <span class="n">shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>   <span class="n">shape</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">canonicalize_shape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span> <span class="k">return</span> <span class="n">_multivariate_normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">12</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File ~/base/project1/env/lib/python3.8/site-packages/jax/_src/dispatch.py:535,</span> in <span class="ni">backend_compile</span><span class="nt">(backend, built_c, options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="nd">@profiler</span><span class="o">.</span><span class="n">annotate_function</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="k">def</span> <span class="nf">backend_compile</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">built_c</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span>   <span class="c1"># we use a separate function call to ensure that XLA compilation appears</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>   <span class="c1"># separately in Python profiling results</span>
+<span class="ne">--&gt; </span><span class="mi">535</span>   <span class="k">return</span> <span class="n">backend</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">built_c</span><span class="p">,</span> <span class="n">compile_options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+
+<span class="ne">RuntimeError</span>: UNIMPLEMENTED: While rewriting computation to not contain X64 element types, XLA encountered an HLO for which this rewriting is not implemented: %bitcast-convert.277 = f64[3]{0} bitcast-convert(u64[3]{0} %or.276), metadata={op_type=&quot;bitcast_convert_type&quot; op_name=&quot;jit(_multivariate_normal)/bitcast_convert_type[new_dtype=float64]&quot; source_file=&quot;/mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py&quot; source_line=73}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> JSL/jsl/demos/eekf_logistic_regression_demo.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MCMC weights
+[-1.70073    -0.99159336 -0.8605771 ]
+
+Laplace weights
+[-1.6733112  -0.92109627 -0.74142355]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">disks</span><span class="o">/</span><span class="n">persist</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">JSL</span><span class="o">/</span><span class="n">jsl</span><span class="o">/</span><span class="n">demos</span><span class="o">/</span><span class="n">eekf_logistic_regression_demo</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1"># Import data and baseline solution</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">jsl.demos</span> <span class="kn">import</span> <span class="n">logreg_biclusters_demo</span> <span class="k">as</span> <span class="n">demo</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="n">figures</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">demo</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="nn">File /mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py:107,</span> in <span class="ni">main</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span> <span class="c1">## Laplace</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="ne">--&gt; </span><span class="mi">107</span> <span class="n">w_laplace</span><span class="p">,</span> <span class="n">SN</span> <span class="o">=</span> <span class="n">laplace_posterior</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="c1">### MCMC Approximation</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="n">chains</span> <span class="o">=</span> <span class="n">mcmc_logistic_posterior_sample</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="nn">File /mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py:73,</span> in <span class="ni">laplace_posterior</span><span class="nt">(key, Phi, y, alpha, init_noise)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">def</span> <span class="nf">laplace_posterior</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">init_noise</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Phi</span><span class="o">.</span><span class="n">shape</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>     <span class="n">w0</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">jnp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="o">*</span> <span class="n">init_noise</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="n">E</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="o">-</span><span class="n">E_base</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;BFGS&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/base/project1/env/lib/python3.8/site-packages/jax/_src/random.py:589,</span> in <span class="ni">multivariate_normal</span><span class="nt">(key, mean, cov, shape, dtype, method)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> <span class="k">if</span> <span class="n">shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>   <span class="n">shape</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">canonicalize_shape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span> <span class="k">return</span> <span class="n">_multivariate_normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">12</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File ~/base/project1/env/lib/python3.8/site-packages/jax/_src/dispatch.py:535,</span> in <span class="ni">backend_compile</span><span class="nt">(backend, built_c, options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="nd">@profiler</span><span class="o">.</span><span class="n">annotate_function</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="k">def</span> <span class="nf">backend_compile</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">built_c</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span>   <span class="c1"># we use a separate function call to ensure that XLA compilation appears</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>   <span class="c1"># separately in Python profiling results</span>
+<span class="ne">--&gt; </span><span class="mi">535</span>   <span class="k">return</span> <span class="n">backend</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">built_c</span><span class="p">,</span> <span class="n">compile_options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+
+<span class="ne">RuntimeError</span>: UNIMPLEMENTED: While rewriting computation to not contain X64 element types, XLA encountered an HLO for which this rewriting is not implemented: %bitcast-convert.277 = f64[3]{0} bitcast-convert(u64[3]{0} %or.276), metadata={op_type=&quot;bitcast_convert_type&quot; op_name=&quot;jit(_multivariate_normal)/bitcast_convert_type[new_dtype=float64]&quot; source_file=&quot;/mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py&quot; source_line=73}
+</pre></div>
+</div>
+<img alt="_images/scratchpad_7_2.png" src="_images/scratchpad_7_2.png" />
+<img alt="_images/scratchpad_7_3.png" src="_images/scratchpad_7_3.png" />
+<img alt="_images/scratchpad_7_4.png" src="_images/scratchpad_7_4.png" />
+<img alt="_images/scratchpad_7_5.png" src="_images/scratchpad_7_5.png" />
+<img alt="_images/scratchpad_7_6.png" src="_images/scratchpad_7_6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> JSL/jsl/demos/logreg_biclusters_demo.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">disks</span><span class="o">/</span><span class="n">persist</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">JSL</span><span class="o">/</span><span class="n">jsl</span><span class="o">/</span><span class="n">demos</span><span class="o">/</span><span class="n">logreg_biclusters_demo</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">173</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="kn">from</span> <span class="nn">jsl.demos.plot_utils</span> <span class="kn">import</span> <span class="n">savefig</span>
+<span class="ne">--&gt; </span><span class="mi">173</span>     <span class="n">figs</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>     <span class="n">savefig</span><span class="p">(</span><span class="n">figs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">File /mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py:107,</span> in <span class="ni">main</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span> <span class="c1">## Laplace</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="ne">--&gt; </span><span class="mi">107</span> <span class="n">w_laplace</span><span class="p">,</span> <span class="n">SN</span> <span class="o">=</span> <span class="n">laplace_posterior</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="c1">### MCMC Approximation</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="n">chains</span> <span class="o">=</span> <span class="n">mcmc_logistic_posterior_sample</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="nn">File /mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py:73,</span> in <span class="ni">laplace_posterior</span><span class="nt">(key, Phi, y, alpha, init_noise)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">def</span> <span class="nf">laplace_posterior</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">init_noise</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Phi</span><span class="o">.</span><span class="n">shape</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>     <span class="n">w0</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">jnp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="o">*</span> <span class="n">init_noise</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="n">E</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="o">-</span><span class="n">E_base</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;BFGS&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/base/project1/env/lib/python3.8/site-packages/jax/_src/random.py:589,</span> in <span class="ni">multivariate_normal</span><span class="nt">(key, mean, cov, shape, dtype, method)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> <span class="k">if</span> <span class="n">shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>   <span class="n">shape</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">canonicalize_shape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span> <span class="k">return</span> <span class="n">_multivariate_normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">12</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File ~/base/project1/env/lib/python3.8/site-packages/jax/_src/dispatch.py:535,</span> in <span class="ni">backend_compile</span><span class="nt">(backend, built_c, options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="nd">@profiler</span><span class="o">.</span><span class="n">annotate_function</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="k">def</span> <span class="nf">backend_compile</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">built_c</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span>   <span class="c1"># we use a separate function call to ensure that XLA compilation appears</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>   <span class="c1"># separately in Python profiling results</span>
+<span class="ne">--&gt; </span><span class="mi">535</span>   <span class="k">return</span> <span class="n">backend</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">built_c</span><span class="p">,</span> <span class="n">compile_options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+
+<span class="ne">RuntimeError</span>: UNIMPLEMENTED: While rewriting computation to not contain X64 element types, XLA encountered an HLO for which this rewriting is not implemented: %bitcast-convert.277 = f64[3]{0} bitcast-convert(u64[3]{0} %or.276), metadata={op_type=&quot;bitcast_convert_type&quot; op_name=&quot;jit(_multivariate_normal)/bitcast_convert_type[new_dtype=float64]&quot; source_file=&quot;/mnt/disks/persist/project1/github/JSL/jsl/demos/logreg_biclusters_demo.py&quot; source_line=73}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> pyprobml/scripts/vb_gauss_cholesky_biclusters_demo.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ffvb_predictive_distribution.pdf
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ffvb_predictive_distribution.png
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ffvb_weights_marginals_0.pdf
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ffvb_weights_marginals_0.png
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ffvb_weights_marginals_1.pdf
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ffvb_weights_marginals_1.png
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ffvb_weights_marginals_2.pdf
+saving image to /mnt/disks/persist/project1/github/pyprobml/scripts/../figures/ffvb_weights_marginals_2.png
+FFVB weights
+[-1.127439   -0.69480884 -0.67794997]
+</pre></div>
+</div>
+<img alt="_images/scratchpad_9_1.png" src="_images/scratchpad_9_1.png" />
+<img alt="_images/scratchpad_9_2.png" src="_images/scratchpad_9_2.png" />
+<img alt="_images/scratchpad_9_3.png" src="_images/scratchpad_9_3.png" />
+<img alt="_images/scratchpad_9_4.png" src="_images/scratchpad_9_4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> pyprobml/scripts/kf_tracking_demo.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L2-filter: 3.2605
+L2-smooth: 2.0507
+</pre></div>
+</div>
+<img alt="_images/scratchpad_10_1.png" src="_images/scratchpad_10_1.png" />
+<img alt="_images/scratchpad_10_2.png" src="_images/scratchpad_10_2.png" />
+<img alt="_images/scratchpad_10_3.png" src="_images/scratchpad_10_3.png" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
