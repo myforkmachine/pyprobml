@@ -45,7 +45,7 @@ if dev_mode:
 # In[3]:
 
 
-# Bar graphs showing a uniform discrete distribution and another with full prob on one value.
+# Bar graphs showing a uniform discrete distribution and another with full mass on one value.
 
 N = 4
 
