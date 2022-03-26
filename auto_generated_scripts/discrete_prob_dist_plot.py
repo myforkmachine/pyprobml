@@ -83,7 +83,7 @@ _, _ = make_graph(delta_probs, N, "delta_histogram_latexified.pdf");
 from ipywidgets import interact
 
 
-@interact(random_state=(0, 10), N=(2, 10))
+@interact(random_state=(1, 10), N=(2, 10))
 def generate_random(random_state, N):
     key = jax.random.PRNGKey(random_state)
     probs = jax.random.uniform(key, shape=(N,))
