@@ -42,13 +42,6 @@ jobs:
         git commit -m "auto generated py files" || echo "No changes to commit"
         git push
       if: github.event_name == 'push'  # Don't run on pull requests
-    # # Push py files to the repository and commit (does not run on pull requests)
-    # - name: Push py files to github
-    #   uses: ad-m/github-push-action@master
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     branch: ${{ github.ref }}
-    #   if: github.event_name == 'push'  # Don't run on pull requests
     # Locally build Jupyter-book
     - name: Build the book
       run: |
