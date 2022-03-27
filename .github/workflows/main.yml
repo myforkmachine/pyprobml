@@ -14,25 +14,31 @@ jobs:
     steps:
     # Clone the reference repository
     - uses: actions/checkout@v2
-    # Set up the environment
+
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
         python-version: '3.8'
-    # Install the requirements
-    - name: Install jupyter and pytest
+    
+    - name: Check code formatting of notebooks
       run: |
-        pip install jupyter pytest
-    # Convert notebooks to Python code
-    - name: convert ipynb to py
+        pip install black[jupyter]
+        black --check --verbose --line-length=120 notebooks/*.ipynb
+    
+    - name: Check notebooks for errors
+      run: |
+        pip install pytest
+        pytest tests/test_notebooks.py
+
+    - name: Convert notebooks to Python code
       run: |
         jupyter nbconvert --to python notebooks/*.ipynb --output-dir=auto_generated_scripts
-    # Run the tests and check for errors
-    - name: Run tests on notebooks and scripts
+    
+    - name: Check auto-generated scripts for errors
       run: |
-        pytest
-    # Commit py files (does not run on pull requests)
-    - name: Commit py files
+        pytest tests/test_scripts.py  
+    
+    - name: Commit py files (does not run on pull requests)
       run: |
         git config --local user.name github-actions
         git config --local user.email github-actions@github.com
@@ -40,13 +46,13 @@ jobs:
         git commit -m "auto generated py files" || echo "No changes to commit"
         git push
       if: github.event_name == 'push'  # Don't run on pull requests
-    # Locally build Jupyter-book
-    - name: Build the book
+    
+    - name: Locally build Jupyter-book
       run: |
         pip install -r requirements.txt
         jupyter-book build ./
-    # Push the book to the gh-pages branch  (does not run on pull requests)
-    - name: Push jupyter-book to gh-pages
+    
+    - name: Push jupyter-book to gh-pages (does not run on pull requests)
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
