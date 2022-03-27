@@ -97,9 +97,7 @@ if dev_mode:
 
 
 # Another example, with two modes
-def make_graph(
-    ax, data, color=None, linestyle=None, label=None, xlabel=None, ylabel=None
-):
+def make_graph(ax, data, color=None, linestyle=None, label=None, xlabel=None, ylabel=None):
 
     LINE_WIDTH = 2
     x = data["x"]

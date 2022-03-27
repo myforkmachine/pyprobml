@@ -64,9 +64,7 @@ def make_graph(data, save_name):
         savefig(save_name)
 
 
-make_graph(
-    {"x": x, "y": random_var.pdf(x), "ylabel": "$p(x)$"}, "gaussian1d_latexified.pdf"
-)
+make_graph({"x": x, "y": random_var.pdf(x), "ylabel": "$p(x)$"}, "gaussian1d_latexified.pdf")
 make_graph(
     {"x": x, "y": random_var.cdf(x), "ylabel": "$Pr(X \leq x)$"},
     "gaussianCdf_latexified.pdf",
