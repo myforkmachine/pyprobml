@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/combining_kernels_by_summation.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebooks/combining_kernels_by_multiplication.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -183,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/patel-zeel/pyprobml/issues/new?title=Issue%20on%20page%20%2Fnotebooks/combining_kernels_by_summation.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/patel-zeel/pyprobml/issues/new?title=Issue%20on%20page%20%2Fnotebooks/combining_kernels_by_multiplication.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/patel-zeel/pyprobml/master?urlpath=tree/notebooks/combining_kernels_by_summation.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/patel-zeel/pyprobml/master?urlpath=tree/notebooks/combining_kernels_by_multiplication.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -212,7 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/patel-zeel/pyprobml/blob/master/notebooks/combining_kernels_by_summation.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/patel-zeel/pyprobml/blob/master/notebooks/combining_kernels_by_multiplication.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -304,21 +304,21 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;scripts&quot;</span><span class="p">)</span>
     <span class="kn">from</span> <span class="nn">plot_utils</span> <span class="kn">import</span> <span class="n">latexify</span><span class="p">,</span> <span class="n">savefig</span>
 
-    <span class="n">latexify</span><span class="p">(</span><span class="n">width_scale_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">height_scale_factor</span><span class="o">=</span><span class="mf">1.5</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">latexify</span><span class="p">(</span><span class="n">width_scale_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fig_height</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_sample</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">save_name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_graph</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">save_name</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">dev_mode</span><span class="p">:</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.4</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
     <span class="c1"># Plot kernel</span>
-    <span class="n">kernel</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;kernel1&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;kernel2&quot;</span><span class="p">]</span>
+    <span class="n">kernel</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;kernel1&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;kernel2&quot;</span><span class="p">]</span>
     <span class="n">x2</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">kernel_values</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">kernel_values</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
@@ -345,44 +345,44 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_sample</span><span class="p">(</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">make_graph</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="s2">&quot;kernel1&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-        <span class="s2">&quot;kernel2&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSineSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
-        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Lin + Per&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;xlabel&quot;</span><span class="p">:</span> <span class="s2">&quot;periodic plus trend&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="n">save_name</span><span class="o">=</span><span class="s2">&quot;kernel_sum_lin_per_latexified.pdf&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_sample</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;kernel1&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
-        <span class="s2">&quot;kernel2&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSineSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
-        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SE + Per&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;xlabel&quot;</span><span class="p">:</span> <span class="s2">&quot;periodic plus noise&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="n">save_name</span><span class="o">=</span><span class="s2">&quot;kernel_sum_se_per_latexified.pdf&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_sample</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;kernel1&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
         <span class="s2">&quot;kernel2&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SE + Lin&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;xlabel&quot;</span><span class="p">:</span> <span class="s2">&quot;linear plus variation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Lin x Lin&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xlabel&quot;</span><span class="p">:</span> <span class="s2">&quot;quadratic functions&quot;</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="n">save_name</span><span class="o">=</span><span class="s2">&quot;kernel_sum_lin_se_latexified.pdf&quot;</span><span class="p">,</span>
+    <span class="n">save_name</span><span class="o">=</span><span class="s2">&quot;kernel_mul_lin_lin_latexified.pdf&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_sample</span><span class="p">(</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">make_graph</span><span class="p">(</span>
     <span class="p">{</span>
-        <span class="s2">&quot;kernel1&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">5.0</span><span class="p">),</span>
-        <span class="s2">&quot;kernel2&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
-        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SE (long) + SE (short)}&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;xlabel&quot;</span><span class="p">:</span> <span class="s2">&quot;slow &amp; fast variation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kernel1&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">4.0</span><span class="p">),</span>
+        <span class="s2">&quot;kernel2&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSineSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SE x Per&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xlabel&quot;</span><span class="p">:</span> <span class="s2">&quot;locally periodic&quot;</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="n">save_name</span><span class="o">=</span><span class="s2">&quot;kernel_sum_se_se_latexified.pdf&quot;</span><span class="p">,</span>
+    <span class="n">save_name</span><span class="o">=</span><span class="s2">&quot;kernel_mul_se_per_latexified.pdf&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">make_graph</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;kernel1&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;kernel2&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Lin x SE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xlabel&quot;</span><span class="p">:</span> <span class="s2">&quot;increasing variation&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">save_name</span><span class="o">=</span><span class="s2">&quot;kernel_mu_lin_se_latexified.pdf&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">make_graph</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;kernel1&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;kernel2&quot;</span><span class="p">:</span> <span class="n">kernels</span><span class="o">.</span><span class="n">ExpSineSquared</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Lin x Per&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xlabel&quot;</span><span class="p">:</span> <span class="s2">&quot;growing amplitude&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">save_name</span><span class="o">=</span><span class="s2">&quot;kernel_mul_lin_per_latexified.pdf&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -391,10 +391,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
 </pre></div>
 </div>
-<img alt="../_images/combining_kernels_by_summation_2_1.png" src="../_images/combining_kernels_by_summation_2_1.png" />
-<img alt="../_images/combining_kernels_by_summation_2_2.png" src="../_images/combining_kernels_by_summation_2_2.png" />
-<img alt="../_images/combining_kernels_by_summation_2_3.png" src="../_images/combining_kernels_by_summation_2_3.png" />
-<img alt="../_images/combining_kernels_by_summation_2_4.png" src="../_images/combining_kernels_by_summation_2_4.png" />
+<img alt="../_images/combining_kernels_by_multiplication_2_1.png" src="../_images/combining_kernels_by_multiplication_2_1.png" />
+<img alt="../_images/combining_kernels_by_multiplication_2_2.png" src="../_images/combining_kernels_by_multiplication_2_2.png" />
+<img alt="../_images/combining_kernels_by_multiplication_2_3.png" src="../_images/combining_kernels_by_multiplication_2_3.png" />
+<img alt="../_images/combining_kernels_by_multiplication_2_4.png" src="../_images/combining_kernels_by_multiplication_2_4.png" />
 </div>
 </div>
 
