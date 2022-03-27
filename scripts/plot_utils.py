@@ -55,5 +55,7 @@ def savefig(f_name, fig_dir=None, *args, **kwargs):
 
     if not "TEST_MODE" in os.environ:
         print("saving image to {}".format(fname_full))
-        plt.tight_layout()
-        plt.savefig(fname_full, bbox_inches="tight", pad_inches=0.0, *args, **kwargs)
+        plt.tight_layout(pad=0)
+        print("Figure size:", plt.gcf().get_size_inches())
+        plt.savefig(fname_full, pad_inches=0.0, *args, **kwargs)
+        # bbox_inches="tight",  # This changes the size of the figure
