@@ -249,9 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>CDF and Quantile PDF Plot of Standard Normal Distribution<a class="headerlink" href="#cdf-and-quantile-pdf-plot-of-standard-normal-distribution" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">try</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">jax</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="o">%</span><span class="k">pip</span> install jax jaxlib
@@ -277,7 +275,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dev_mode</span> <span class="o">=</span> <span class="s2">&quot;DEV_MODE&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">dev_mode</span> <span class="o">=</span> <span class="s2">&quot;DEV_MODE&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
 
 <span class="k">if</span> <span class="n">dev_mode</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">sys</span>
@@ -301,28 +300,33 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">x_fill_right</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_sep_right</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_fill_left</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_fill_left</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_fill_right</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_fill_right</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-    <span class="sa">r</span><span class="s2">&quot;$\alpha/2$&quot;</span><span class="p">,</span>
-    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x_sep_left</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_sep_left</span><span class="p">)),</span>
-    <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
-    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">arrowstyle</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">),</span>
-<span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-    <span class="sa">r</span><span class="s2">&quot;$1-\alpha/2$&quot;</span><span class="p">,</span>
-    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x_sep_right</span><span class="o">+</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_sep_right</span><span class="p">)),</span>
-    <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
-    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">arrowstyle</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">),</span>
-<span class="p">)</span>
+<span class="n">arrow_x_left</span> <span class="o">=</span> <span class="n">x_sep_left</span> <span class="o">-</span> <span class="mf">0.2</span>
+<span class="n">arrow_x_right</span> <span class="o">=</span> <span class="n">x_sep_right</span> <span class="o">+</span> <span class="mf">0.2</span>
+<span class="n">arrow_y_left</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_sep_left</span><span class="p">)</span>
+<span class="n">arrow_y_right</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_sep_right</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">arrow_x_left</span><span class="p">,</span><span class="n">arrow_y_left</span><span class="p">,</span><span class="o">-</span><span class="mf">2.5</span><span class="o">-</span><span class="n">arrow_x_left</span><span class="p">,</span><span class="mf">0.2</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_sep_left</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;$\alpha/2$&quot;</span><span class="p">,</span><span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">arrow_x_right</span><span class="p">,</span><span class="n">arrow_y_right</span><span class="p">,</span><span class="mf">2.5</span><span class="o">-</span><span class="n">arrow_x_right</span><span class="p">,</span><span class="mf">0.2</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_sep_left</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;$\alpha/2$&quot;</span><span class="p">,</span><span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$p(x)$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+
+
+
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="n">x_sep_left</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x_sep_right</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">r</span><span class="s1">&#39;$\Phi ^{-1}(\alpha/2)$&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$\Phi ^{-1}(1-\alpha/2)$&#39;</span><span class="p">])</span>
 <span class="k">if</span> <span class="n">dev_mode</span><span class="p">:</span>
     <span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;gaussianQuantile_latexified.pdf&quot;</span><span class="p">)</span>
-
-<span class="c1"># plt.show()</span>
 </pre></div>
 </div>
 </div>
