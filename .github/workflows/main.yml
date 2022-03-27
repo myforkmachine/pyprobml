@@ -12,7 +12,7 @@ jobs:
   test_run:
     runs-on: ubuntu-latest
     steps:
-    # Clone the repository
+    # Clone the reference repository
     - uses: actions/checkout@v2
     # Set up the environment
     - name: Set up Python 3.8
