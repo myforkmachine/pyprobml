@@ -45,20 +45,20 @@ if dev_mode:
     sys.path.append("scripts")
     from plot_utils import latexify, savefig
 
-    latexify(width_scale_factor=4, height_scale_factor=1.5 / 2)
+    latexify(width_scale_factor=4, fig_height=2)
 
 
 # In[3]:
 
 
-def plot_sample(data, save_name):
+def make_graph(data, save_name):
     if dev_mode:
         fig, ax = plt.subplots(2, 1)
     else:
         fig, ax = plt.subplots(2, 1, figsize=(6.4, 6))
 
     # Plot kernel
-    kernel = data["kernel1"] + data["kernel2"]
+    kernel = data["kernel1"] * data["kernel2"]
     x2 = jnp.array([1.0]).reshape(-1, 1)
     kernel_values = kernel(x, x2)
     ax[0].plot(x.ravel(), kernel_values.ravel(), color="k")
@@ -85,43 +85,43 @@ N = len(x)
 
 key = jax.random.PRNGKey(4)
 
-fig, ax = plot_sample(
+fig, ax = make_graph(
     {
         "kernel1": kernels.Polynomial(order=1),
-        "kernel2": kernels.ExpSineSquared(scale=1.5, gamma=1.0),
-        "title": "Lin + Per",
-        "xlabel": "periodic plus trend",
-    },
-    save_name="kernel_sum_lin_per_latexified.pdf",
-)
-
-fig, ax = plot_sample(
-    {
-        "kernel1": kernels.ExpSquared(scale=1.0),
-        "kernel2": kernels.ExpSineSquared(scale=2.0, gamma=1.0),
-        "title": "SE + Per",
-        "xlabel": "periodic plus noise",
-    },
-    save_name="kernel_sum_se_per_latexified.pdf",
-)
-
-fig, ax = plot_sample(
-    {
-        "kernel1": kernels.ExpSquared(scale=1.0),
         "kernel2": kernels.Polynomial(order=1),
-        "title": "SE + Lin",
-        "xlabel": "linear plus variation",
+        "title": "Lin x Lin",
+        "xlabel": "quadratic functions",
     },
-    save_name="kernel_sum_lin_se_latexified.pdf",
+    save_name="kernel_mul_lin_lin_latexified.pdf",
 )
 
-fig, ax = plot_sample(
+fig, ax = make_graph(
     {
-        "kernel1": kernels.ExpSquared(scale=5.0),
-        "kernel2": kernels.ExpSquared(scale=0.5),
-        "title": "SE (long) + SE (short)}",
-        "xlabel": "slow & fast variation",
+        "kernel1": kernels.ExpSquared(scale=4.0),
+        "kernel2": kernels.ExpSineSquared(scale=2.0, gamma=0.5),
+        "title": "SE x Per",
+        "xlabel": "locally periodic",
     },
-    save_name="kernel_sum_se_se_latexified.pdf",
+    save_name="kernel_mul_se_per_latexified.pdf",
+)
+
+fig, ax = make_graph(
+    {
+        "kernel1": kernels.Polynomial(order=1),
+        "kernel2": kernels.ExpSquared(scale=1.0),
+        "title": "Lin x SE",
+        "xlabel": "increasing variation",
+    },
+    save_name="kernel_mu_lin_se_latexified.pdf",
+)
+
+fig, ax = make_graph(
+    {
+        "kernel1": kernels.Polynomial(order=1),
+        "kernel2": kernels.ExpSineSquared(scale=2.0, gamma=1.0),
+        "title": "Lin x Per",
+        "xlabel": "growing amplitude",
+    },
+    save_name="kernel_mul_lin_per_latexified.pdf",
 )
 

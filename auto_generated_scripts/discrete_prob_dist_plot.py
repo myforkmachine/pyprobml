@@ -6,8 +6,6 @@
 # In[1]:
 
 
-import os
-
 try:
     import jax
 except:
@@ -30,6 +28,8 @@ except:
 
 # In[2]:
 
+
+import os
 
 dev_mode = "DEV_MODE" in os.environ
 
