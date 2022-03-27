@@ -32,6 +32,7 @@ jobs:
 
     - name: Convert notebooks to Python code
       run: |
+        pip install jupyter
         jupyter nbconvert --to python notebooks/*.ipynb --output-dir=auto_generated_scripts
     
     - name: Check auto-generated scripts for errors
