@@ -53,7 +53,7 @@ jobs:
         pip install -r requirements.txt
         jupyter-book build ./
         mv _build/html _build/book1
-        cp _build/book1 _build/book2
+        cp -r _build/book1 _build/book2
     
     - name: Push jupyter-book to gh-pages (does not run on pull requests)
       uses: peaceiris/actions-gh-pages@v3.6.1
