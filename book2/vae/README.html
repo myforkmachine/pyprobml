@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Requirements &#8212; Probabilistic Machine Learning</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilistic Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Probabilistic Machine Learning
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/discrete_prob_dist_plot.html">
+   Discrete Probability Distribution Plot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/bimodal_dist_plot.html">
+   Bimodal distribution (mixture of two 1d Gaussians)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/anscombes_quartet.html">
+   Anscombe’s quartet: Same low order summary statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/binom_dist_plot.html">
+   Plots the pmfs of binomial distributions with varying probability of success parameter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/gauss_plot.html">
+   CDF and PDF plots of Standard Normal Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/quantile_plot.html">
+   CDF and Quantile PDF Plot of Standard Normal Distribution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/vae/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/patel-zeel/pyprobml"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/patel-zeel/pyprobml/issues/new?title=Issue%20on%20page%20%2Fvae/README.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Requirements
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-download-this-subdirectory-only">
+   To download this subdirectory only
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instruction-for-training-the-model">
+   Instruction For Training The Model
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-celeba-data">
+     Download celeba data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-train-model">
+     To Train Model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgement">
+   Acknowledgement
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Requirements</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Requirements
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-download-this-subdirectory-only">
+   To download this subdirectory only
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instruction-for-training-the-model">
+   Instruction For Training The Model
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-celeba-data">
+     Download celeba data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-train-model">
+     To Train Model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgement">
+   Acknowledgement
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <h1 align="center">
+  <b>PyProbML VAE zoo 🐘 </b><br>
+</h1>
+<p>Author:
+<a href="https://github.com/Neoanarika">Ming Liang Ang</a>. Summer 2021.
+<p></p>
+<p>Compare results of different VAEs : <a href= "https://colab.research.google.com/github/probml/probml-notebooks/blob/main/notebooks/vae_compare_results.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p>VAE tricks and what the different VAE try to address : <a href="https://colab.research.google.com/github/probml/probml-notebooks/blob/main/notebooks/vae_tricks.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p>A collection of Variational AutoEncoders (VAEs) implemented in <strong>pytorch</strong> with focus on reproducibility and creating reusable blocks that can be used in any project. The aim of this project is to provide
+a quick and simple working example for many of the cool VAE idea in the textbook. All the models are trained on the <a class="reference external" href="http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html">CelebA dataset</a>
+for consistency and comparison.</p>
+<div class="section" id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Python &gt;= 3.7</p></li>
+<li><p>PyTorch &gt;= 1.8</p></li>
+<li><p>Pytorch Lightning  == 1.4.0</p></li>
+<li><p>CUDA enabled computing device</p></li>
+</ul>
+</div>
+<div class="section" id="to-download-this-subdirectory-only">
+<h1>To download this subdirectory only<a class="headerlink" href="#to-download-this-subdirectory-only" title="Permalink to this headline">¶</a></h1>
+<p>Copy the url of the subdirectory and past it to this <a class="reference external" href="https://download-directory.github.io">webstie</a> and then download this subdirectory as a zipfile</p>
+</div>
+<div class="section" id="instruction-for-training-the-model">
+<h1>Instruction For Training The Model<a class="headerlink" href="#instruction-for-training-the-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="download-celeba-data">
+<h2>Download celeba data<a class="headerlink" href="#download-celeba-data" title="Permalink to this headline">¶</a></h2>
+<p><strong>Important :</strong> Make sure to get your kaggle.json from <a class="reference external" href="https://github.com/Kaggle/kaggle-api#api-credentials">these instructions</a> then run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">root</span><span class="o">/.</span><span class="n">kaggle</span> 
+<span class="n">cp</span> <span class="n">kaggle</span><span class="o">.</span><span class="n">json</span> <span class="o">/</span><span class="n">root</span><span class="o">/.</span><span class="n">kaggle</span><span class="o">/</span><span class="n">kaggle</span><span class="o">.</span><span class="n">json</span>
+<span class="n">chmod</span> <span class="mi">600</span> <span class="o">/</span><span class="n">root</span><span class="o">/.</span><span class="n">kaggle</span><span class="o">/</span><span class="n">kaggle</span><span class="o">.</span><span class="n">json</span>
+<span class="n">rm</span> <span class="n">kaggle</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>to copy kaggle.json into a folder first. Then to download the data first donwload the following <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/scripts/download_celeba.py">script</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">probml</span><span class="o">/</span><span class="n">pyprobml</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">download_celeba</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>and run the following script</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">download_celeba</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="to-train-model">
+<h2>To Train Model<a class="headerlink" href="#to-train-model" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">run</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">config</span> <span class="o">./</span><span class="n">configs</span><span class="o">/</span><span class="n">vanilla_vae</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Paper</p></th>
+<th class="head"><p>Reconstruction</p></th>
+<th class="head"><p>Samples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Original Images (for reconstruction)</p></td>
+<td><p><strong>N/A</strong></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/original.png" /></p></td>
+<td><p><strong>N/A</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>AE (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/vanilla_ae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/vanilla_ae.yaml">Config</a>)</p></td>
+<td><p><strong>N/A</strong></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/vanilla_ae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/vanilla_ae_samples.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>VAE (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/vanilla_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/vanilla_vae.yaml">Config</a>)</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1312.6114">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/vanilla_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/vanilla_vae_samples.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>beta-VAE (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/beta_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/beta_vae.yaml">Config</a>)</p></td>
+<td><p><a class="reference external" href="https://openreview.net/pdf?id=Sy2fzU9gl">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/beta_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/beta_vae_samples.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Hinge VAE (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/hinge_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/hinge_vae.yaml">Config</a>)</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1606.04934">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/hinge_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/hinge_vae_samples.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>MMD VAE (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/mmd_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/mmd_vae.yaml">Config</a>)</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1706.02262">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/mmd_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/mmd_vae_samples.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Info VAE   (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/info_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/info_vae.yaml">Config</a>)</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1706.02262">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/info_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/info_vae_samples.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>LogCosh VAE   (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/logcosh_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/logcosh_vae.yaml">Config</a>)</p></td>
+<td><p><a class="reference external" href="https://openreview.net/forum?id=rkglvsC9Ym">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/logcosh_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/logcosh_vae_samples.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Two-stage VAE   (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/two_stage_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/two_stage_vae.yaml">Config</a>)</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1903.05789">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/two_stage_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/two_stage_vae_samples.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sigma VAE   (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/sigma_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/sigma_vae.yaml">Config</a>)</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/2006.13202">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/sigma_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/sigma_vae_samples.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>VQ-VAE (<em>K = 512, D = 64</em>) (<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/vq_vae.py">Code</a>, <a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/configs/vq_vae.yaml">Config</a>) + PixelCNN(<a class="reference external" href="https://github.com/probml/pyprobml/blob/master/vae/models/sigma_vae.py">Code</a>)</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1711.00937">Link</a></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/vq_vae_recon.png" /></p></td>
+<td><p><img alt="" src="https://github.com/probml/pyprobml/blob/master/vae/assets/vq_vae_samples.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="acknowledgement">
+<h1>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permalink to this headline">¶</a></h1>
+<p>The idea of this zoo and some of the scripts were based on Anand Krishnamoorthy <a class="reference external" href="https://github.com/AntixK/PyTorch-VAE">Pytorch-VAE library</a>, we also used the script from <a class="reference external" href="https://github.com/sayantanauddy/vae_lightning">sayantanauddy</a> to transform and download the celeba from kaggle.</p>
+<hr class="docutils" />
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./vae"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
