@@ -25,10 +25,10 @@ jobs:
         pip install black[jupyter]
         black --check --verbose --line-length=120 notebooks/*.ipynb
     
-    - name: Check notebooks for errors
-      run: |
-        pip install pytest
-        pytest tests/test_notebooks.py
+#     - name: Check notebooks for errors
+#       run: |
+#         pip install pytest
+#         pytest tests/test_notebooks.py
 
 #     - name: Convert notebooks to Python code
 #       run: |
