@@ -23,7 +23,7 @@ jobs:
     
     - name: Check code formatting of notebooks
       run: |
-        apt install python3-pip -y
+        apt update && apt install python3-pip -y
         pip install black[jupyter]
         black --check --verbose --line-length=120 notebooks/*.ipynb
     
