@@ -16,13 +16,14 @@ jobs:
     # Clone the reference repository
     - uses: actions/checkout@v2
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+#     - name: Set up Python 3.8
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: '3.8'
     
     - name: Check code formatting of notebooks
       run: |
+        apt install python3-pip -y
         pip install black[jupyter]
         black --check --verbose --line-length=120 notebooks/*.ipynb
     
