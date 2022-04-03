@@ -4,7 +4,7 @@ import subprocess
 from glob import glob
 
 os.environ["DEV_MODE"] = "True"
-os.environ["TEST_MODE"] = "True"
+# os.environ["TEST_MODE"] = "True"
 notebooks = glob("notebooks/*.ipynb")
 
 
