@@ -119,8 +119,8 @@ fig, ax = plot_sample(
     {
         "kernel1": kernels.ExpSquared(scale=5.0),
         "kernel2": kernels.ExpSquared(scale=0.5),
-        "title": "SE (long) + SE (short)}",
-        "xlabel": "slow & fast variation",
+        "title": "SE (long) + SE (short)",
+        "xlabel": "slow \& fast variation",
     },
     save_name="kernel_sum_se_se_latexified.pdf",
 )
