@@ -10,7 +10,7 @@ on:
 
 jobs:
   test_run:
-    runs-on: ubuntu-latest
+    container: texlive/texlive:TL2020-historic
     steps:
     # Clone the reference repository
     - uses: actions/checkout@v2
