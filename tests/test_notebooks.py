@@ -13,4 +13,5 @@ def test_run_notebooks(notebook):
     """
     Test notebooks
     """
-    subprocess.run(["ipython", f"{notebook}"], check=True)
+    cmd = ["ipython", "-c", "%run {}".format(notebook)]
+    subprocess.run(cmd, check=True)
